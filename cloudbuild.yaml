@@ -1,0 +1,15 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'murilohoracio/full-cycle-ci-cd-example:latest', '-t', 'murilohoracio/full-cycle-ci-cd-example:$SHORT_SHA', '.']
+  
+  - name: 'docker'
+    args: ['run', '-d', '--name', 'goapp', 'murilohoracio/full-cycle-ci-cd-example:latest']
+  
+  - name: 'docker'
+    args: ['exec', 'goapp', 'go', 'test']
+  
+  # - name: 'docker'
+  #   args: ['push', 'murilohoracio/full-cycle-ci-cd-example:latest']
+  
+  # - name: 'docker'
+  #   args: ['push', 'murilohoracio/full-cycle-ci-cd-example:$SHORT_SHA']
