@@ -1,5 +1,5 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'docker'
     args: ['build', '-t', 'murilohoracio/full-cycle-ci-cd-example:latest', '-t', 'murilohoracio/full-cycle-ci-cd-example:$SHORT_SHA', '.']
   
   - name: 'docker'
